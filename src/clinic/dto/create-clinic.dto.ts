@@ -42,7 +42,4 @@ export class CreateClinicDto {
 
   @ApiProperty({ type: () => ResponsiblePerson })
   readonly responsible_person: ResponsiblePerson;
-
-  @ApiProperty()
-  readonly created_at: Date;
 }

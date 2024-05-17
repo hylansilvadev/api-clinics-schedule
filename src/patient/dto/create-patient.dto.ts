@@ -34,6 +34,4 @@ export class CreatePatientDto {
   readonly another_condition: [];
   @ApiProperty({ type: () => Address })
   readonly address: Address;
-  @ApiProperty()
-  readonly created_at: Date;
 }

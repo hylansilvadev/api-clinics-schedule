@@ -9,6 +9,4 @@ export class CreateScheduleDto {
   readonly doctor_responsible: string;
   @ApiProperty()
   readonly patient_id: string;
-  @ApiProperty()
-  readonly created_at: Date;
 }

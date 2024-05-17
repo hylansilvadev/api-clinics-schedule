@@ -1,7 +1,16 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Param,
+  Patch,
+  Delete,
+} from '@nestjs/common';
 import { ClinicService } from './clinic.service';
 import { CreateClinicDto } from './dto/create-clinic.dto';
 import { ApiTags } from '@nestjs/swagger';
+import { UpdateClinicDto } from './dto/update-clinic.dto';
 // import { UpdateClinicDto } from './dto/update-clinic.dto';
 
 @ApiTags('Clinic')
@@ -17,5 +26,23 @@ export class ClinicController {
   @Get()
   async findAll() {
     return this.clinicService.findAll();
+  }
+
+  @Get(':id')
+  async findOne(@Param('id') id: string) {
+    return this.clinicService.findOne(id);
+  }
+
+  @Patch(':id')
+  async update(
+    @Param('id') id: string,
+    @Body() updateTestDto: UpdateClinicDto,
+  ) {
+    return this.clinicService.update(id, updateTestDto);
+  }
+
+  @Delete(':id')
+  async remove(@Param('id') id: string) {
+    await this.clinicService.remove(id);
   }
 }

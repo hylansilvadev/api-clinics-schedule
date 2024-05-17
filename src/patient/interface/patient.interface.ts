@@ -18,4 +18,5 @@ export interface Patient extends Document {
     readonly zip_code: string;
   };
   readonly created_at: Date;
+  readonly updated_at: null;
 }
