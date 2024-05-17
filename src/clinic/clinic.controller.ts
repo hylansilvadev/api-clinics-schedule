@@ -10,12 +10,12 @@ export class ClinicController {
   constructor(private readonly clinicService: ClinicService) {}
 
   @Post()
-  create(@Body() createClinicDto: CreateClinicDto) {
+  async create(@Body() createClinicDto: CreateClinicDto) {
     return this.clinicService.create(createClinicDto);
   }
 
   @Get()
-  findAll() {
+  async findAll() {
     return this.clinicService.findAll();
   }
 }
