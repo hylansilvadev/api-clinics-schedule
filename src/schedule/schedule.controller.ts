@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
 import { ScheduleService } from './schedule.service';
 import { CreateScheduleDto } from './dto/create-schedule.dto';
 import { ApiTags } from '@nestjs/swagger';
@@ -16,5 +16,15 @@ export class ScheduleController {
   @Get()
   async findAll() {
     return this.scheduleService.findAll();
+  }
+
+  @Get(':id')
+  async findById(@Param('id') id: string) {
+    return this.scheduleService.finById(id);
+  }
+
+  @Delete(':id')
+  async deleteById(@Param('id') id: string) {
+    await this.scheduleService.deleteById(id);
   }
 }
