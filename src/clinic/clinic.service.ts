@@ -23,7 +23,7 @@ export class ClinicService {
     return this.clinicModel.findById(id);
   }
 
-  update(id: string, updatePatientDto: UpdateClinicDto): Promise<Clinic> {
+  async update(id: string, updatePatientDto: UpdateClinicDto): Promise<Clinic> {
     const updatedClinic = this.clinicModel.findByIdAndUpdate(
       id,
       updatePatientDto,
